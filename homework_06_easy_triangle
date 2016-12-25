@@ -1,0 +1,32 @@
+import math
+class Figure:
+    verbose_name = 'Figure'
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    def move(self,dx,dy):
+        self.x +=dx
+        self.y +=dy
+    def __str__(self):
+        return '{}({},{})'.format(self.__class__.__name__,self.x,self.y)
+    def get_verbose_name(self):
+        return self.verbose_name
+class Triangle(Figure):
+    verbose_name = 'Triangle'
+    def __init__(self,x,y, x1,x2,x3,height): #x1,x2,x3 - стороны
+        self.x1 = x1
+        self.x2 = x2
+        self.x3 = x3
+        self.height = height
+    def get_area(self):
+        return (self.x1*self.height)/2
+    def get_half_perimeter(self): #полупериметр
+        return ((self.x1+self.x2+self.x3)/2)
+    def __str__(self):
+        return 'Triangle({},{},{},{},{},{})'.format(self.x,self.y,self.x1,self.x2,self.x3,self.height)
+    def get_perimeter(self):
+        return (self.x1+self.x2+self.x3)
+    def get_height(self):
+        return math.sqrt('''вызов функции get_perimeter'''(('''вызов функции get_perimeter'''-self.x1)*('''вызов функции get_perimeter'''-self.x2)*('''вызов функции get_perimeter'''-self.x3))/(self.x1))
+
+
